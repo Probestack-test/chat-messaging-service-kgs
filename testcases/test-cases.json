@@ -1,6 +1,6 @@
 [
   {
-    "id": "5071c6dd-7427-4ff9-aa01-74740e70699c",
+    "id": "db70f899-39ea-4a69-8e33-58d32895888c",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[POSITIVE] GET /channels",
     "endpoint": "/channels",
@@ -35,8 +35,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113571014Z",
-    "updatedAt": "2026-09-01T11:36:45.113575918Z",
+    "createdAt": "2026-09-01T12:38:11.142551103Z",
+    "updatedAt": "2026-09-01T12:38:11.142556116Z",
     "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -44,7 +44,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "66d60d88-adce-46f4-a8cb-63222fe13bb0",
+    "id": "ff7a3518-464f-46db-824e-daae198f5a27",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[PERFORMANCE] GET /channels",
     "endpoint": "/channels",
@@ -79,8 +79,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113640731Z",
-    "updatedAt": "2026-09-01T11:36:45.11364229Z",
+    "createdAt": "2026-09-01T12:38:11.142689423Z",
+    "updatedAt": "2026-09-01T12:38:11.142691012Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -88,7 +88,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "31272801-9bb5-4601-b2b3-80dce4d81928",
+    "id": "14354d1b-4b07-44c1-92e4-0ce8b1ac4182",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] GET /channels",
     "endpoint": "/channels",
@@ -123,8 +123,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113680945Z",
-    "updatedAt": "2026-09-01T11:36:45.113681493Z",
+    "createdAt": "2026-09-01T12:38:11.143013702Z",
+    "updatedAt": "2026-09-01T12:38:11.14301577Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -132,7 +132,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "f24ee464-03f4-4c7e-9f5e-94494a7db225",
+    "id": "98322a96-9a87-417b-a079-3a93f903037d",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] GET /channels",
     "endpoint": "/channels",
@@ -167,8 +167,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113696133Z",
-    "updatedAt": "2026-09-01T11:36:45.113696599Z",
+    "createdAt": "2026-09-01T12:38:11.143248084Z",
+    "updatedAt": "2026-09-01T12:38:11.143250111Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -176,7 +176,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "1e839245-3f60-4d49-ba25-3ea2d5884c7b",
+    "id": "81ac3748-188b-4bc5-8fd5-b12dcd923823",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[POSITIVE] POST /channels",
     "endpoint": "/channels",
@@ -194,8 +194,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113740861Z",
-    "updatedAt": "2026-09-01T11:36:45.113741846Z",
+    "createdAt": "2026-09-01T12:38:11.143564045Z",
+    "updatedAt": "2026-09-01T12:38:11.143565998Z",
     "assertions": "pm.test(\"Status code is 201\", function() { if(pm.response.code !== 201) throw new Error(\"Expected 201 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -203,7 +203,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "f8195ce1-d663-48c8-9628-33da9c00e246",
+    "id": "8d664b2f-987d-48bb-9feb-b3a04bbf3832",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[PERFORMANCE] POST /channels",
     "endpoint": "/channels",
@@ -221,8 +221,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.11375953Z",
-    "updatedAt": "2026-09-01T11:36:45.113760129Z",
+    "createdAt": "2026-09-01T12:38:11.143583166Z",
+    "updatedAt": "2026-09-01T12:38:11.143583636Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -230,7 +230,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "4ea9da8e-fa5e-4550-95c1-b13efc98d9c2",
+    "id": "f0a208fb-0296-4719-a24b-e83504fe7883",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[POSITIVE] GET /channels/{channelId}/messages",
     "endpoint": "/channels/{channelId}/messages",
@@ -273,8 +273,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113777754Z",
-    "updatedAt": "2026-09-01T11:36:45.113778241Z",
+    "createdAt": "2026-09-01T12:38:11.143615308Z",
+    "updatedAt": "2026-09-01T12:38:11.143616034Z",
     "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -282,7 +282,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "2469ad70-6b97-47e8-b4b6-ce64b8782158",
+    "id": "08f2bd18-4f34-4296-9e05-5cd38127e809",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[PERFORMANCE] GET /channels/{channelId}/messages",
     "endpoint": "/channels/{channelId}/messages",
@@ -325,8 +325,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113785242Z",
-    "updatedAt": "2026-09-01T11:36:45.113785686Z",
+    "createdAt": "2026-09-01T12:38:11.143624371Z",
+    "updatedAt": "2026-09-01T12:38:11.143624829Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -334,7 +334,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "8e1dbb06-9969-4e4d-804a-946726a2a670",
+    "id": "2e2eb813-903b-4a82-8867-c7f286126c70",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] GET /channels/{channelId}/messages",
     "endpoint": "/channels/{channelId}/messages",
@@ -377,8 +377,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113796559Z",
-    "updatedAt": "2026-09-01T11:36:45.113797002Z",
+    "createdAt": "2026-09-01T12:38:11.143644394Z",
+    "updatedAt": "2026-09-01T12:38:11.143645139Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -386,7 +386,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "3e5a8915-b7ae-4826-958b-187040d3593e",
+    "id": "030359d0-0546-4243-bfc9-272f8831f097",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] GET /channels/{channelId}/messages",
     "endpoint": "/channels/{channelId}/messages",
@@ -429,8 +429,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113805691Z",
-    "updatedAt": "2026-09-01T11:36:45.113806084Z",
+    "createdAt": "2026-09-01T12:38:11.1436583Z",
+    "updatedAt": "2026-09-01T12:38:11.143659291Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -438,7 +438,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "e16b2423-0fa5-47a2-b3f7-9949255fa41d",
+    "id": "d27fb1b3-b8cc-45d4-bc43-4675263a094a",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[POSITIVE] POST /channels/{channelId}/messages",
     "endpoint": "/channels/{channelId}/messages",
@@ -465,8 +465,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113868668Z",
-    "updatedAt": "2026-09-01T11:36:45.113869194Z",
+    "createdAt": "2026-09-01T12:38:11.143670631Z",
+    "updatedAt": "2026-09-01T12:38:11.143671451Z",
     "assertions": "pm.test(\"Status code is 201\", function() { if(pm.response.code !== 201) throw new Error(\"Expected 201 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -474,7 +474,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "0a101e86-8044-4cb2-b9cf-382091bd0e4b",
+    "id": "746954e4-d6bc-4b4a-a846-8ca582a4f9c0",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[PERFORMANCE] POST /channels/{channelId}/messages",
     "endpoint": "/channels/{channelId}/messages",
@@ -501,8 +501,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113876029Z",
-    "updatedAt": "2026-09-01T11:36:45.113876659Z",
+    "createdAt": "2026-09-01T12:38:11.143677874Z",
+    "updatedAt": "2026-09-01T12:38:11.143678321Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -510,7 +510,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "0a208fe9-85ef-4b8f-b04b-029169ffb6db",
+    "id": "c846c394-e39f-4dd7-b1e1-6208add6e531",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] POST /channels/{channelId}/messages",
     "endpoint": "/channels/{channelId}/messages",
@@ -537,8 +537,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113886391Z",
-    "updatedAt": "2026-09-01T11:36:45.113886853Z",
+    "createdAt": "2026-09-01T12:38:11.143687773Z",
+    "updatedAt": "2026-09-01T12:38:11.143688299Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -546,7 +546,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "9064f65e-e782-4c88-bebc-8bbc5ac6769a",
+    "id": "26ec5132-7dc1-4f5c-bfbb-a78403528ed0",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] POST /channels/{channelId}/messages",
     "endpoint": "/channels/{channelId}/messages",
@@ -573,8 +573,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113893553Z",
-    "updatedAt": "2026-09-01T11:36:45.113894308Z",
+    "createdAt": "2026-09-01T12:38:11.143695281Z",
+    "updatedAt": "2026-09-01T12:38:11.143695816Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -582,7 +582,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "07cdb17e-3825-422e-ae4c-e7057cba2299",
+    "id": "57012f67-cf2a-4841-b261-ecef1db3acf4",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[POSITIVE] DELETE /channels/{channelId}/messages/{messageId}",
     "endpoint": "/channels/{channelId}/messages/{messageId}",
@@ -617,8 +617,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113907436Z",
-    "updatedAt": "2026-09-01T11:36:45.113907843Z",
+    "createdAt": "2026-09-01T12:38:11.143711638Z",
+    "updatedAt": "2026-09-01T12:38:11.143712182Z",
     "assertions": "pm.test(\"Status code is 204\", function() { if(pm.response.code !== 204) throw new Error(\"Expected 204 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -626,7 +626,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "abfc2783-3ca1-4d6d-8e0f-821a3cdc3a3c",
+    "id": "49e78d58-b198-42be-ab4a-3a1eb5b3a904",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[PERFORMANCE] DELETE /channels/{channelId}/messages/{messageId}",
     "endpoint": "/channels/{channelId}/messages/{messageId}",
@@ -661,8 +661,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113914447Z",
-    "updatedAt": "2026-09-01T11:36:45.113915049Z",
+    "createdAt": "2026-09-01T12:38:11.143719112Z",
+    "updatedAt": "2026-09-01T12:38:11.143719587Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -670,7 +670,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "f5906945-a2af-49c1-b7fc-51d74183c11e",
+    "id": "c2579a62-71ff-469b-8c27-7a507bda5d1c",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] DELETE /channels/{channelId}/messages/{messageId}",
     "endpoint": "/channels/{channelId}/messages/{messageId}",
@@ -705,8 +705,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113923896Z",
-    "updatedAt": "2026-09-01T11:36:45.113924683Z",
+    "createdAt": "2026-09-01T12:38:11.143729882Z",
+    "updatedAt": "2026-09-01T12:38:11.143730392Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -714,7 +714,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "2ebc7daf-8d15-4785-8c1d-2e9ea8114c03",
+    "id": "ec979a41-e105-4609-8d8d-6ab34a1819b3",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] DELETE /channels/{channelId}/messages/{messageId}",
     "endpoint": "/channels/{channelId}/messages/{messageId}",
@@ -749,8 +749,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113930694Z",
-    "updatedAt": "2026-09-01T11:36:45.113931296Z",
+    "createdAt": "2026-09-01T12:38:11.14373719Z",
+    "updatedAt": "2026-09-01T12:38:11.143737701Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -758,7 +758,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "9a018bd3-0ec4-468d-bb93-078cfec6cc47",
+    "id": "44c9cfb7-e9f6-4a50-9d42-1cc9459278c0",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] DELETE /channels/{channelId}/messages/{messageId}",
     "endpoint": "/channels/{channelId}/messages/{messageId}",
@@ -793,8 +793,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113939387Z",
-    "updatedAt": "2026-09-01T11:36:45.113939884Z",
+    "createdAt": "2026-09-01T12:38:11.143747154Z",
+    "updatedAt": "2026-09-01T12:38:11.143747712Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -802,7 +802,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "f28ece1d-2ec2-494e-9e1d-31073510412c",
+    "id": "892e64bf-54f2-42c4-b694-fdb9bfe151f9",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[POSITIVE] PUT /channels/{channelId}/receipts",
     "endpoint": "/channels/{channelId}/receipts",
@@ -829,8 +829,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113948138Z",
-    "updatedAt": "2026-09-01T11:36:45.113948663Z",
+    "createdAt": "2026-09-01T12:38:11.143757302Z",
+    "updatedAt": "2026-09-01T12:38:11.143757902Z",
     "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -838,7 +838,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "1e1b6ada-380f-45dc-87ea-8b87d5dbb756",
+    "id": "e922c1f3-a359-4e37-834b-dc5fa4ef6aa7",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[PERFORMANCE] PUT /channels/{channelId}/receipts",
     "endpoint": "/channels/{channelId}/receipts",
@@ -865,8 +865,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113956715Z",
-    "updatedAt": "2026-09-01T11:36:45.113957361Z",
+    "createdAt": "2026-09-01T12:38:11.143766526Z",
+    "updatedAt": "2026-09-01T12:38:11.14376703Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -874,7 +874,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "c04df25f-26ea-475c-80fb-abbec2c575d2",
+    "id": "0d869e6f-b0b3-411e-a250-c389e279e6bb",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] PUT /channels/{channelId}/receipts",
     "endpoint": "/channels/{channelId}/receipts",
@@ -901,8 +901,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113964442Z",
-    "updatedAt": "2026-09-01T11:36:45.113964867Z",
+    "createdAt": "2026-09-01T12:38:11.143773585Z",
+    "updatedAt": "2026-09-01T12:38:11.143774331Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -910,7 +910,7 @@
     "generatedByEmail": "khitish.mangal@probestack.io"
   },
   {
-    "id": "8917f85d-2a7a-403c-a6dc-3092cec9cc13",
+    "id": "2d978346-3939-476e-99ae-c5dff2fb2730",
     "microserviceId": "6a96a3951fd5203d92671ee8",
     "title": "[NEGATIVE] PUT /channels/{channelId}/receipts",
     "endpoint": "/channels/{channelId}/receipts",
@@ -937,8 +937,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T11:36:45.113973172Z",
-    "updatedAt": "2026-09-01T11:36:45.113973714Z",
+    "createdAt": "2026-09-01T12:38:11.143782763Z",
+    "updatedAt": "2026-09-01T12:38:11.143783265Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
