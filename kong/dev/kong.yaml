@@ -1,0 +1,86 @@
+_format_version: "3.0"
+_transform: true
+
+########################################################
+# SERVICES
+########################################################
+
+services:
+  - name: chat-messaging-service
+    host: chat-messaging-service-upstream
+    port: 80
+    protocol: http
+    path: /abcd
+    retries: 5
+    connect_timeout: 60000
+    write_timeout: 60000
+    read_timeout: 60000
+    tags:
+      - env:dev
+      - team:open-banking
+      - app:chat-messaging-service
+    routes:
+      - name: chat-messaging-service-get-chat-messaging-service
+        protocols:
+          - https
+          - http
+        methods:
+          - GET
+        hosts:
+          - me.com
+        paths:
+          - /v1/chat-messaging-service
+        strip_path: true
+        preserve_host: false
+        https_redirect_status_code: 426
+        tags:
+          - env:dev
+      - name: chat-messaging-service-post-chat-messaging-service
+        protocols:
+          - https
+          - http
+        methods:
+          - POST
+        hosts:
+          - me.com
+        paths:
+          - /v1/chat-messaging-service
+        strip_path: true
+        preserve_host: false
+        https_redirect_status_code: 426
+        tags:
+          - env:dev
+      - name: chat-messaging-service-get-chat-messaging-service-id
+        protocols:
+          - https
+          - http
+        methods:
+          - GET
+        hosts:
+          - me.com
+        paths:
+          - /v1/chat-messaging-service/:id
+        strip_path: true
+        preserve_host: false
+        https_redirect_status_code: 426
+        tags:
+          - env:dev
+
+########################################################
+# PLUGINS
+########################################################
+
+plugins:
+  []
+
+########################################################
+# UPSTREAMS + TARGETS
+########################################################
+
+upstreams:
+  - name: chat-messaging-service-upstream
+    algorithm: round-robin
+    slots: 10000
+    targets:
+      - target: me.com:443
+        weight: 100

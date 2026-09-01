@@ -1,0 +1,137 @@
+{
+  "microserviceId": "6a96a3951fd5203d92671ee8",
+  "mocks": [
+    {
+      "id": "b2e25373-33dc-4ae5-a8f3-61be20422ec0",
+      "microserviceId": "6a96a3951fd5203d92671ee8",
+      "specMetadataId": "6a96a3ad40e8243f64aac02e",
+      "apiSpecName": "Chat Messaging Service",
+      "name": "mock-chat-messaging-service",
+      "mockServiceName": "mock-chat-messaging-service",
+      "mockServerUrl": "https://forgesphere.probestack.io/mock-api/v1/api/mocks/mock-f2d68e9a",
+      "responseLatencyMs": 0,
+      "mockUrl": "mock-f2d68e9a",
+      "isPrivate": true,
+      "delayMs": 0,
+      "requestCount": 6,
+      "createdAt": "2026-09-01T10:06:47.250Z",
+      "updatedAt": "2026-09-01T10:06:49.765Z",
+      "endpoints": [
+        {
+          "id": "edf024a8-d7e0-4728-881c-f5d7fdb5ace1",
+          "mockId": "b2e25373-33dc-4ae5-a8f3-61be20422ec0",
+          "path": "/channels",
+          "method": "GET",
+          "responseStatus": 200,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"GROUP\",\"name\":\"Release war room\",\"memberIds\":[\"00000000-0000-0000-0000-000000000000\"],\"lastMessagePreview\":\"Deploy is green, closing the incident.\",\"unreadCount\":3,\"createdAt\":\"2024-01-01T00:00:00Z\",\"lastActivityAt\":\"2024-01-01T00:00:00Z\"}]",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": null,
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:06:47.274Z",
+          "updatedAt": "2026-09-01T10:06:47.275Z"
+        },
+        {
+          "id": "83353233-bd76-42bf-ba77-1f004698fb1c",
+          "mockId": "b2e25373-33dc-4ae5-a8f3-61be20422ec0",
+          "path": "/channels",
+          "method": "POST",
+          "responseStatus": 201,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"GROUP\",\"name\":\"Release war room\",\"memberIds\":[\"00000000-0000-0000-0000-000000000000\"],\"lastMessagePreview\":\"Deploy is green, closing the incident.\",\"unreadCount\":3,\"createdAt\":\"2024-01-01T00:00:00Z\",\"lastActivityAt\":\"2024-01-01T00:00:00Z\"}",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": "{\"type\":\"GROUP\",\"name\":\"Release war room\",\"memberIds\":[\"00000000-0000-0000-0000-000000000000\"]}",
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:06:47.282Z",
+          "updatedAt": "2026-09-01T10:06:47.283Z"
+        },
+        {
+          "id": "99771bd4-45b4-4ced-987e-13fc304f9f63",
+          "mockId": "b2e25373-33dc-4ae5-a8f3-61be20422ec0",
+          "path": "/channels/{channelId}/messages",
+          "method": "GET",
+          "responseStatus": 200,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "{\"channelId\":\"00000000-0000-0000-0000-000000000000\",\"nextCursor\":\"msg_8f7e6d\",\"messages\":[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"channelId\":\"00000000-0000-0000-0000-000000000000\",\"senderId\":\"00000000-0000-0000-0000-000000000000\",\"body\":\"Deploy is green, closing the incident.\",\"attachmentIds\":[\"d0c1u2m3\"],\"deleted\":false,\"postedAt\":\"2024-01-01T00:00:00Z\"}]}",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": null,
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:06:47.291Z",
+          "updatedAt": "2026-09-01T10:06:47.291Z"
+        },
+        {
+          "id": "63fccb9f-6e76-4993-9a20-8fce5f23926c",
+          "mockId": "b2e25373-33dc-4ae5-a8f3-61be20422ec0",
+          "path": "/channels/{channelId}/messages",
+          "method": "POST",
+          "responseStatus": 201,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "{\"id\":\"00000000-0000-0000-0000-000000000000\",\"channelId\":\"00000000-0000-0000-0000-000000000000\",\"senderId\":\"00000000-0000-0000-0000-000000000000\",\"body\":\"Deploy is green, closing the incident.\",\"attachmentIds\":[\"d0c1u2m3\"],\"deleted\":false,\"postedAt\":\"2024-01-01T00:00:00Z\"}",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": "{\"senderId\":\"00000000-0000-0000-0000-000000000000\",\"body\":\"Deploy is green, closing the incident.\",\"attachmentIds\":[\"d0c1u2m3\"]}",
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:06:47.300Z",
+          "updatedAt": "2026-09-01T10:06:47.300Z"
+        },
+        {
+          "id": "18fdb792-4647-4781-807b-d2a48410ad4e",
+          "mockId": "b2e25373-33dc-4ae5-a8f3-61be20422ec0",
+          "path": "/channels/{channelId}/messages/{messageId}",
+          "method": "DELETE",
+          "responseStatus": 204,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "{}",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": null,
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:06:47.308Z",
+          "updatedAt": "2026-09-01T10:06:47.309Z"
+        },
+        {
+          "id": "1416c8fb-d15d-4ed5-a705-3c59ddedf53b",
+          "mockId": "b2e25373-33dc-4ae5-a8f3-61be20422ec0",
+          "path": "/channels/{channelId}/receipts",
+          "method": "PUT",
+          "responseStatus": 200,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "{\"channelId\":\"00000000-0000-0000-0000-000000000000\",\"memberId\":\"00000000-0000-0000-0000-000000000000\",\"lastReadMessageId\":\"00000000-0000-0000-0000-000000000000\",\"unreadCount\":0,\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": "{\"memberId\":\"00000000-0000-0000-0000-000000000000\",\"lastReadMessageId\":\"00000000-0000-0000-0000-000000000000\"}",
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:06:47.318Z",
+          "updatedAt": "2026-09-01T10:06:47.319Z"
+        }
+      ]
+    }
+  ]
+}

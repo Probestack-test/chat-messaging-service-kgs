@@ -1,0 +1,490 @@
+openapi: 3.0.3
+info:
+  title: Chat Messaging Service
+  version: 1.0.0
+  description: |
+    Powers in-app conversations, direct messages, and group channels with read receipts.
+    This API is used as the source specification to automatically generate
+    an API Gateway proxy (Kong or Apigee) with routing, authentication,
+    rate limiting, and caching policies.
+  contact:
+    name: Realtime Platform Team
+    email: chat@probestack.io
+  x-proxy-config:
+    upstream-url: https://chat-service.probestack.io
+    service-name: chat-messaging-gateway
+    rate-limit: 900/minute
+    cors-enabled: true
+    retries: 2
+
+servers:
+  - url: https://gateway.probestack.io/chat/v1
+    description: Production Gateway
+  - url: http://localhost:8000/chat/v1
+    description: Local Gateway
+
+security:
+  - ApiKeyAuth: []
+
+tags:
+  - name: Channels
+    description: Create and manage conversation channels
+  - name: Messages
+    description: Post and read messages
+  - name: Receipts
+    description: Delivery and read receipts
+
+paths:
+  /channels:
+    get:
+      tags: [Channels]
+      summary: List channels
+      description: Returns the channels a member belongs to, ordered by most recent activity.
+      operationId: listChannels
+      parameters:
+        - name: memberId
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: Member whose channels should be returned
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [DIRECT, GROUP, SUPPORT, ALL]
+            default: ALL
+          description: Filter by channel type
+      responses:
+        '200':
+          description: Channels fetched successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Channel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [GET]
+        plugins:
+          - name: cors
+          - name: rate-limiting
+            config:
+              minute: 900
+          - name: proxy-cache
+            config:
+              cache_ttl: 10
+
+    post:
+      tags: [Channels]
+      summary: Create a channel
+      description: Opens a new direct or group channel. Direct channels between the same two members are deduplicated.
+      operationId: createChannel
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChannelRequest'
+      responses:
+        '201':
+          description: Channel created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [POST]
+        plugins:
+          - name: cors
+          - name: rate-limiting
+            config:
+              minute: 120
+
+  /channels/{channelId}/messages:
+    get:
+      tags: [Messages]
+      summary: List messages in a channel
+      description: Returns messages in reverse chronological order with cursor based pagination.
+      operationId: listMessages
+      parameters:
+        - name: channelId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: before
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Cursor - return messages posted before this message id
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 50
+      responses:
+        '200':
+          description: Messages fetched successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessagePage'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [GET]
+        plugins:
+          - name: cors
+          - name: rate-limiting
+            config:
+              minute: 900
+
+    post:
+      tags: [Messages]
+      summary: Post a message
+      description: Sends a message to the channel. Attachments must already be uploaded to the document service.
+      operationId: postMessage
+      parameters:
+        - name: channelId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostMessageRequest'
+      responses:
+        '201':
+          description: Message posted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [POST]
+        plugins:
+          - name: cors
+          - name: rate-limiting
+            config:
+              minute: 600
+          - name: request-transformer
+            config:
+              add:
+                headers:
+                  - "X-Message-Correlation:${uuid}"
+
+  /channels/{channelId}/messages/{messageId}:
+    delete:
+      tags: [Messages]
+      summary: Delete a message
+      description: Soft deletes a message. The placeholder remains in the thread for other participants.
+      operationId: deleteMessage
+      parameters:
+        - name: channelId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: messageId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Message deleted successfully (no content)
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [DELETE]
+        plugins:
+          - name: cors
+
+  /channels/{channelId}/receipts:
+    put:
+      tags: [Receipts]
+      summary: Mark messages as read
+      description: Advances the member's read cursor to the supplied message id.
+      operationId: updateReadReceipt
+      parameters:
+        - name: channelId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateReceiptRequest'
+      responses:
+        '200':
+          description: Read receipt updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadReceipt'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [PUT]
+        plugins:
+          - name: cors
+          - name: rate-limiting
+            config:
+              minute: 900
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API Key required for all gateway requests.
+
+  schemas:
+    Channel:
+      type: object
+      required:
+        - id
+        - type
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          type: string
+          enum: [DIRECT, GROUP, SUPPORT]
+          example: "GROUP"
+        name:
+          type: string
+          example: "Release war room"
+        memberIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        lastMessagePreview:
+          type: string
+          example: "Deploy is green, closing the incident."
+        unreadCount:
+          type: integer
+          example: 3
+        createdAt:
+          type: string
+          format: date-time
+        lastActivityAt:
+          type: string
+          format: date-time
+
+    CreateChannelRequest:
+      type: object
+      required:
+        - type
+        - memberIds
+      properties:
+        type:
+          type: string
+          enum: [DIRECT, GROUP, SUPPORT]
+          example: "GROUP"
+        name:
+          type: string
+          example: "Release war room"
+        memberIds:
+          type: array
+          minItems: 2
+          items:
+            type: string
+            format: uuid
+
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        channelId:
+          type: string
+          format: uuid
+        senderId:
+          type: string
+          format: uuid
+        body:
+          type: string
+          example: "Deploy is green, closing the incident."
+        attachmentIds:
+          type: array
+          items:
+            type: string
+          example: ["d0c1u2m3"]
+        deleted:
+          type: boolean
+          example: false
+        postedAt:
+          type: string
+          format: date-time
+
+    PostMessageRequest:
+      type: object
+      required:
+        - senderId
+        - body
+      properties:
+        senderId:
+          type: string
+          format: uuid
+        body:
+          type: string
+          minLength: 1
+          maxLength: 4000
+          example: "Deploy is green, closing the incident."
+        attachmentIds:
+          type: array
+          items:
+            type: string
+          example: ["d0c1u2m3"]
+
+    MessagePage:
+      type: object
+      properties:
+        channelId:
+          type: string
+          format: uuid
+        nextCursor:
+          type: string
+          description: Pass as the `before` parameter to fetch the next page
+          example: "msg_8f7e6d"
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+
+    UpdateReceiptRequest:
+      type: object
+      required:
+        - memberId
+        - lastReadMessageId
+      properties:
+        memberId:
+          type: string
+          format: uuid
+        lastReadMessageId:
+          type: string
+          format: uuid
+
+    ReadReceipt:
+      type: object
+      properties:
+        channelId:
+          type: string
+          format: uuid
+        memberId:
+          type: string
+          format: uuid
+        lastReadMessageId:
+          type: string
+          format: uuid
+        unreadCount:
+          type: integer
+          example: 0
+        updatedAt:
+          type: string
+          format: date-time
+
+    ErrorResponse:
+      type: object
+      required:
+        - status
+        - message
+      properties:
+        status:
+          type: integer
+          example: 400
+        errorCode:
+          type: string
+          example: "MESSAGE_TOO_LONG"
+        message:
+          type: string
+          example: "Message body exceeds the 4000 character limit"
+        timestamp:
+          type: string
+          format: date-time
+        path:
+          type: string
+          example: "/chat/v1/channels/8f7e6d/messages"
+
+  responses:
+    BadRequest:
+      description: Invalid request payload or parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing or invalid API Key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

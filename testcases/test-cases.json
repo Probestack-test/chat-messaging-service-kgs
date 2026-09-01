@@ -1,0 +1,948 @@
+[
+  {
+    "id": "94fcb9d6-1cd2-4758-9ce5-8ca65db1de82",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[POSITIVE] GET /channels",
+    "endpoint": "/channels",
+    "method": "GET",
+    "operationId": "listChannels",
+    "summary": "List channels",
+    "description": "Happy path: valid request should return 200",
+    "tags": [
+      "Channels"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Member whose channels should be returned",
+        "example": null
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Filter by channel type",
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.79517101Z",
+    "updatedAt": "2026-09-01T10:08:15.795176706Z",
+    "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 200",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "4457f748-c48b-48cc-b4d0-701d301f5d2a",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[PERFORMANCE] GET /channels",
+    "endpoint": "/channels",
+    "method": "GET",
+    "operationId": "listChannels",
+    "summary": "List channels",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Channels"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Member whose channels should be returned",
+        "example": null
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Filter by channel type",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795233679Z",
+    "updatedAt": "2026-09-01T10:08:15.795234591Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "be282870-5f26-45aa-b493-72dc43dfba70",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] GET /channels",
+    "endpoint": "/channels",
+    "method": "GET",
+    "operationId": "listChannels",
+    "summary": "List channels",
+    "description": "Missing required query parameter: memberId",
+    "tags": [
+      "Channels"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Member whose channels should be returned",
+        "example": null
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Filter by channel type",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795287382Z",
+    "updatedAt": "2026-09-01T10:08:15.795288026Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required query parameter: memberId",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "042f5c80-2aec-45e2-b02b-3773932e9cac",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] GET /channels",
+    "endpoint": "/channels",
+    "method": "GET",
+    "operationId": "listChannels",
+    "summary": "List channels",
+    "description": "Invalid type for parameter memberId (expected string)",
+    "tags": [
+      "Channels"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Member whose channels should be returned",
+        "example": null
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Filter by channel type",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795303278Z",
+    "updatedAt": "2026-09-01T10:08:15.795304451Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter memberId (expected string)",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "19d8949e-7437-4f45-a9b3-6ba5a2b7adb8",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[POSITIVE] POST /channels",
+    "endpoint": "/channels",
+    "method": "POST",
+    "operationId": "createChannel",
+    "summary": "Create a channel",
+    "description": "Happy path: valid request should return 201",
+    "tags": [
+      "Channels"
+    ],
+    "expectedStatus": "201",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795348209Z",
+    "updatedAt": "2026-09-01T10:08:15.795359063Z",
+    "assertions": "pm.test(\"Status code is 201\", function() { if(pm.response.code !== 201) throw new Error(\"Expected 201 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 201",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "d47dcc39-3a94-464a-bd31-3b418a6d8504",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[PERFORMANCE] POST /channels",
+    "endpoint": "/channels",
+    "method": "POST",
+    "operationId": "createChannel",
+    "summary": "Create a channel",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Channels"
+    ],
+    "expectedStatus": "201",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795370831Z",
+    "updatedAt": "2026-09-01T10:08:15.795371312Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "162c27cf-4ed2-4085-8882-3773fccd15ca",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[POSITIVE] GET /channels/{channelId}/messages",
+    "endpoint": "/channels/{channelId}/messages",
+    "method": "GET",
+    "operationId": "listMessages",
+    "summary": "List messages in a channel",
+    "description": "Happy path: valid request should return 200",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "before",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Cursor - return messages posted before this message id",
+        "example": null
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "type": "integer",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.7953912Z",
+    "updatedAt": "2026-09-01T10:08:15.795391839Z",
+    "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 200",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "2b9f9b0d-7395-4e8a-a1dc-8113cf5dea46",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[PERFORMANCE] GET /channels/{channelId}/messages",
+    "endpoint": "/channels/{channelId}/messages",
+    "method": "GET",
+    "operationId": "listMessages",
+    "summary": "List messages in a channel",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "before",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Cursor - return messages posted before this message id",
+        "example": null
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "type": "integer",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795400282Z",
+    "updatedAt": "2026-09-01T10:08:15.79540081Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "77b99e94-e6cd-4d9f-a88d-c284ceff0ae2",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] GET /channels/{channelId}/messages",
+    "endpoint": "/channels/{channelId}/messages",
+    "method": "GET",
+    "operationId": "listMessages",
+    "summary": "List messages in a channel",
+    "description": "Missing required path parameter: channelId",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "before",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Cursor - return messages posted before this message id",
+        "example": null
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "type": "integer",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795412262Z",
+    "updatedAt": "2026-09-01T10:08:15.795412848Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required path parameter: channelId",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "62ef7a51-6d73-4f9f-a096-f68da133c270",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] GET /channels/{channelId}/messages",
+    "endpoint": "/channels/{channelId}/messages",
+    "method": "GET",
+    "operationId": "listMessages",
+    "summary": "List messages in a channel",
+    "description": "Invalid type for parameter channelId (expected string)",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "before",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Cursor - return messages posted before this message id",
+        "example": null
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "type": "integer",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795421572Z",
+    "updatedAt": "2026-09-01T10:08:15.795422107Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter channelId (expected string)",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "5f8a2451-a8af-4085-a2f1-04c0bbe6d71c",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[POSITIVE] POST /channels/{channelId}/messages",
+    "endpoint": "/channels/{channelId}/messages",
+    "method": "POST",
+    "operationId": "postMessage",
+    "summary": "Post a message",
+    "description": "Happy path: valid request should return 201",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "201",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795435282Z",
+    "updatedAt": "2026-09-01T10:08:15.795435805Z",
+    "assertions": "pm.test(\"Status code is 201\", function() { if(pm.response.code !== 201) throw new Error(\"Expected 201 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 201",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "69104779-4581-44a6-8171-80382645914d",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[PERFORMANCE] POST /channels/{channelId}/messages",
+    "endpoint": "/channels/{channelId}/messages",
+    "method": "POST",
+    "operationId": "postMessage",
+    "summary": "Post a message",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "201",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795442685Z",
+    "updatedAt": "2026-09-01T10:08:15.795443234Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "3c5ab430-d4f1-46ca-914e-79e92de65539",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] POST /channels/{channelId}/messages",
+    "endpoint": "/channels/{channelId}/messages",
+    "method": "POST",
+    "operationId": "postMessage",
+    "summary": "Post a message",
+    "description": "Missing required path parameter: channelId",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795453229Z",
+    "updatedAt": "2026-09-01T10:08:15.795453794Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required path parameter: channelId",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "debde53c-a326-4869-a074-165c89dd4927",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] POST /channels/{channelId}/messages",
+    "endpoint": "/channels/{channelId}/messages",
+    "method": "POST",
+    "operationId": "postMessage",
+    "summary": "Post a message",
+    "description": "Invalid type for parameter channelId (expected string)",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795466575Z",
+    "updatedAt": "2026-09-01T10:08:15.795467135Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter channelId (expected string)",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "74e7ef59-b00a-4425-90ea-adae0a5ea3b4",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[POSITIVE] DELETE /channels/{channelId}/messages/{messageId}",
+    "endpoint": "/channels/{channelId}/messages/{messageId}",
+    "method": "DELETE",
+    "operationId": "deleteMessage",
+    "summary": "Delete a message",
+    "description": "Happy path: valid request should return 204",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "204",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "messageId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795480983Z",
+    "updatedAt": "2026-09-01T10:08:15.795481525Z",
+    "assertions": "pm.test(\"Status code is 204\", function() { if(pm.response.code !== 204) throw new Error(\"Expected 204 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 204",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "133fa105-87b2-4d8f-86ba-8e05edb275cb",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[PERFORMANCE] DELETE /channels/{channelId}/messages/{messageId}",
+    "endpoint": "/channels/{channelId}/messages/{messageId}",
+    "method": "DELETE",
+    "operationId": "deleteMessage",
+    "summary": "Delete a message",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "204",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "messageId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795489171Z",
+    "updatedAt": "2026-09-01T10:08:15.79548973Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "b007b512-881b-4d80-b6f5-272df43aa5c7",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] DELETE /channels/{channelId}/messages/{messageId}",
+    "endpoint": "/channels/{channelId}/messages/{messageId}",
+    "method": "DELETE",
+    "operationId": "deleteMessage",
+    "summary": "Delete a message",
+    "description": "Missing required path parameter: channelId",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "messageId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795499212Z",
+    "updatedAt": "2026-09-01T10:08:15.795499837Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required path parameter: channelId",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "00954b20-e908-41d0-ac24-36882a72b297",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] DELETE /channels/{channelId}/messages/{messageId}",
+    "endpoint": "/channels/{channelId}/messages/{messageId}",
+    "method": "DELETE",
+    "operationId": "deleteMessage",
+    "summary": "Delete a message",
+    "description": "Missing required path parameter: messageId",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "messageId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795506879Z",
+    "updatedAt": "2026-09-01T10:08:15.795512557Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required path parameter: messageId",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "b5e069e2-e317-4471-90a4-28739bc5633d",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] DELETE /channels/{channelId}/messages/{messageId}",
+    "endpoint": "/channels/{channelId}/messages/{messageId}",
+    "method": "DELETE",
+    "operationId": "deleteMessage",
+    "summary": "Delete a message",
+    "description": "Invalid type for parameter channelId (expected string)",
+    "tags": [
+      "Messages"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "messageId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795526214Z",
+    "updatedAt": "2026-09-01T10:08:15.795527146Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter channelId (expected string)",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "067b3232-ef77-4a7d-b695-b9926e3db345",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[POSITIVE] PUT /channels/{channelId}/receipts",
+    "endpoint": "/channels/{channelId}/receipts",
+    "method": "PUT",
+    "operationId": "updateReadReceipt",
+    "summary": "Mark messages as read",
+    "description": "Happy path: valid request should return 200",
+    "tags": [
+      "Receipts"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795537202Z",
+    "updatedAt": "2026-09-01T10:08:15.795537731Z",
+    "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 200",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "78eb63b4-a6ef-4c69-8f9e-384a83e46ab6",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[PERFORMANCE] PUT /channels/{channelId}/receipts",
+    "endpoint": "/channels/{channelId}/receipts",
+    "method": "PUT",
+    "operationId": "updateReadReceipt",
+    "summary": "Mark messages as read",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Receipts"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.79554733Z",
+    "updatedAt": "2026-09-01T10:08:15.795547823Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "ecf53cbd-0bb7-44bd-af51-3c1d227f66a0",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] PUT /channels/{channelId}/receipts",
+    "endpoint": "/channels/{channelId}/receipts",
+    "method": "PUT",
+    "operationId": "updateReadReceipt",
+    "summary": "Mark messages as read",
+    "description": "Missing required path parameter: channelId",
+    "tags": [
+      "Receipts"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795554492Z",
+    "updatedAt": "2026-09-01T10:08:15.795555027Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required path parameter: channelId",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  },
+  {
+    "id": "beb49378-09a9-428b-ac2f-56ea5adf78f8",
+    "microserviceId": "6a96a3951fd5203d92671ee8",
+    "title": "[NEGATIVE] PUT /channels/{channelId}/receipts",
+    "endpoint": "/channels/{channelId}/receipts",
+    "method": "PUT",
+    "operationId": "updateReadReceipt",
+    "summary": "Mark messages as read",
+    "description": "Invalid type for parameter channelId (expected string)",
+    "tags": [
+      "Receipts"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "channelId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:08:15.795565211Z",
+    "updatedAt": "2026-09-01T10:08:15.795565729Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter channelId (expected string)",
+    "generatedByEmail": "khitish.mangal@probestack.io"
+  }
+]
